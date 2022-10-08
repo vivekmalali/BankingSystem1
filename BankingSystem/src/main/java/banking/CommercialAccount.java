@@ -9,26 +9,38 @@ import java.util.List;
  * Private Variables:<br>
  * {@link #authorizedUsers}: List&lt;Person&gt;<br>
  */
-public class CommercialAccount  {
-	private List<Person> authorizedUsers;
-
-	public CommercialAccount(Company company, Long accountNumber, int pin, double startingDeposit) {
-		// complete the function
+public class CommercialAccount extends Account{
+	
+	private List<Person> authorizedUser;
+	private Long accountNumber;
+	private double starttingDeposit;
+	private int pin;
+	
+	public CommercialAccount(Company company, Long accountNumber, int pin,  double startingDeposit) {
+	
+		super.setAccountNumber(accountNumber);
+		super.setBalance(startingDeposit);
+		super.setPin(pin);
 	}
-
-	/**
-	 * @param person The authorized user to add to the account.
-	 */
+	
 	protected void addAuthorizedUser(Person person) {
-		// complete the function
+		
 	}
-
-	/**
-	 * @param person
-	 * @return true if person matches an authorized user in {@link #authorizedUsers}; otherwise, false.
-	 */
+    
 	public boolean isAuthorizedUser(Person person) {
-		// complete the function
-        return true;
+		return true;
 	}
+	
+    public Long getAccountNumber() {
+    	return accountNumber;
+    }
+	
+	public void creditAccount(double amount) {
+		
+	}
+	
+	public boolean debitAccount(double amount) {
+		return true;
+	}
+	
 }
