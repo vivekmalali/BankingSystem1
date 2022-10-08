@@ -1,14 +1,16 @@
 package banking;
 
-public class Company  {
+public class Company {
 	private String companyName;
-
-	public Company(String companyName, int taxId) {
-		// complete the function
+	private int taxId;
+	
+	public Company (String companyName, int taxId) {
+		this.companyName = companyName;
+		this.taxId = taxId;
 	}
-
+	
 	public String getCompanyName() {
-		// complete the function
-        return null;
+		return this.companyName;
 	}
+
 }
