@@ -10,42 +10,55 @@ package banking;
  * {@link #pin}: int<br>
  * {@link #balance}: double
  */
-public abstract class Account {
+public abstract class Account implements AccountInterface {
 	private AccountHolder accountHolder;
 	private Long accountNumber;
 	private int pin;
 	private double balance;
-
-	protected Account(AccountHolder accountHolder, Long accountNumber, int pin, double startingDeposit) {
-		// complete the constructor
+	
+	public Account() {
+		
 	}
-
+	protected Account (AccountHolder accountHolder, Long accountNumber, int pin, double startingDeposit) {
+		
+		this.accountHolder = accountHolder;
+		this.accountNumber = accountNumber;
+		this.pin		   = pin;
+		this.balance	   = startingDeposit;
+	}
+	
 	public AccountHolder getAccountHolder() {
-		// complete the function
-        return null;
+		return this.accountHolder;
 	}
-
+	
 	public boolean validatePin(int attemptedPin) {
-		// complete the function
-        return true;
+		if(this.pin == attemptedPin)
+			return true;
+		else
+			 return false;			
 	}
-
+    
 	public double getBalance() {
-		// complete the function
-        return -1;
+		return this.balance;
 	}
-
+	public int getPin() {
+		return this.pin;
+	}
+	public void setPin(int pin) {
+		this.pin = pin;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
 	public Long getAccountNumber() {
-		// complete the function
-        return -1L;
+		return accountNumber;
 	}
-
-	public void creditAccount(double amount) {
-		// complete the function
+	public void setAccountNumber(Long accountNumber) {
+		this.accountNumber = accountNumber;
 	}
-
-	public boolean debitAccount(double amount) {
-		// complete the function
-        return true;
-	}
+	
+	
+	
+	
 }
+
