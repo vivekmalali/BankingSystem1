@@ -6,36 +6,30 @@ package banking;
  * {@link #accountNumber}: Long<br>
  * {@link #bank}: Bank<br>
  */
-public class Transaction {
-	private Long accountNumber;
+public class Transaction implements TransactionInterface{
+	private double balance;
 	private Bank bank;
+	private Long accountNumber;
+	 public Transaction(Bank bank, Long accountNumber, int attemptedPin) throws Exception{
+		 this.balance = bank.getAccount(accountNumber).getBalance();
+		 this.bank = bank;
+		 this.accountNumber = accountNumber;
+	 }
+	 
+	 public double getBalance() {
+		 return bank.getBalance(this.accountNumber);
+	 }
+	 
+	 public void credit(double amount) {
+	    	Account obj = this.bank.getAccount(this.accountNumber);
+	   	    double balAmt =obj.getBalance() + amount;
+	 	
+	    	obj.setBalance(balAmt);
+	 }
+	 
+	 public boolean debit(double amount) {
+		 return true;
+	 }
 
-	/**
-	 *
-	 * @param bank
-	 *            The bank where the account is housed.
-	 * @param accountNumber
-	 *            The customer's account number.
-	 * @param attemptedPin
-	 *            The PIN entered by the customer.
-	 * @throws Exception
-	 *             Account validation failed.
-	 */
-	public Transaction(Bank bank, Long accountNumber, int attemptedPin) throws Exception {
-		// complete the function
-	}
-
-	public double getBalance() {
-		// complete the function
-        return -1;
-	}
-
-	public void credit(double amount) {
-		// complete the function
-	}
-
-	public boolean debit(double amount) {
-		// complete the function
-        return true;
-	}
 }
+
