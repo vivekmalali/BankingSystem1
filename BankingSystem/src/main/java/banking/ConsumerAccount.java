@@ -1,7 +1,21 @@
 package banking;
 
-public class ConsumerAccount  {
+public class ConsumerAccount extends Account{
+  
+	private Long accountNumber;
+	private double currentbalance;
 	public ConsumerAccount(Person person, Long accountNumber, int pin, double currentBalance) {
-		// complete the function
+		super.setAccountNumber(accountNumber);
+		super.setBalance(currentBalance);
+		super.setPin(pin);
+		
 	}
+	
+		public void creditAccount(double amount) {
+			
+		}
+		
+		public boolean debitAccount(double amount) {
+			return true;
+		}
 }
